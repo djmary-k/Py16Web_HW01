@@ -113,7 +113,13 @@ class Record:
             return None
 
 
-class AddressBook(UserDict):
+class ABConsol(ABC):
+    @abstractmethod
+    def iterator(self):
+        pass
+
+
+class AddressBook(ABConsol, UserDict):
     N = 2
 
     def add_record(self, record: Record):
